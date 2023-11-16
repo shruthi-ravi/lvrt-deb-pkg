@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 
 # Copyright 2016-2023 National Instruments
 # This server emulates the NI Service Locator and the NI System Web Server
@@ -98,7 +98,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 		elif s.path.find("deletetree") >= 0:
 			# call to service locator to remove a service
 			# this happens when LV daemon shuts down
-			# since the daemon might not be running when the 
+			# since the daemon might not be running when the
 			# response is sent, just close the connection
 			print "GET deletetree received"
 			s.wfile.close()
@@ -109,7 +109,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 			s.end_headers()
 		else:
 			s.send_error(404)
-			
+
 	def do_POST(s):
 		ppath = urlparse.urlparse(s.path)
 		length = int(s.headers['content-length'])
