@@ -22,9 +22,6 @@
 #/dev/shm	/dev/shm	none	rw,bind		0	0
 #/run/shm	/run/shm	none	rw,bind		0	0
 
-# Add /lib/firmware to allow device tree overlays to work
-/lib/firmware	/lib/firmware	none	rw,bind		0	0
-
 # Add resolv.conf so that it is always updated from the host OS
 /etc/resolv.conf    /etc/resolv.conf    none    rw,bind     0   0
 # Add ca-certificate.crt so that it is always updated from the host OS

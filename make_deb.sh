@@ -6,7 +6,7 @@ if [ $# -ne 1 ]; then
   echo "Usage: $0 IMAGE_TAR_FILE"
   exit 1
 fi
-DFLT_IMGFILE="build/tmp/deploy/images/generic-armv7a/core-image-minimal-chroot-generic-armv7a.tar.gz"
+DFLT_IMGFILE="build/tmp/deploy/images/x64/core-image-minimal-chroot-x64.tar.gz"
 IMAGE_TAR="$1"
 if [ -d "$IMAGE_TAR" -a -f "$IMAGE_TAR/$DFLT_IMGFILE" ]; then
 	IMAGE_TAR="$IMAGE_TAR/$DFLT_IMGFILE"
@@ -43,9 +43,6 @@ ln -sf /etc/systemd/system/labview.service $SYSTEMD_SERVICE_MUT_DIR/labview.serv
 cp src/nisysserver.service $SYSTEMD_SERVICE_DIR/
 rm -f $SYSTEMD_SERVICE_MUT_DIR/nisysserver.service
 ln -sf /etc/systemd/system/nisysserver.service $SYSTEMD_SERVICE_MUT_DIR/nisysserver.service
-
-cp src/linxioserver-tcp.service $SYSTEMD_SERVICE_DIR/
-cp src/linxioserver-serial.service $SYSTEMD_SERVICE_DIR/
 
 # Add NI Sys Web Server emulator script
 cp src/NISysServer.py $PKG_DIR/usr/sbin/
